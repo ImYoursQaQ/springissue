@@ -2,12 +2,13 @@ package com.spring.puzzle.web.filter.example3;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.annotation.Order;
+import org.springframework.stereotype.Component;
 
 import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
 import java.io.IOException;
 
-@WebFilter
+@Component
 @Slf4j
 @Order(1)
 public class TimeCostFilter implements Filter {

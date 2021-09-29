@@ -11,4 +11,7 @@ public class Config extends BaseConfig {
     public MyService service2(){
         return new MyService("myservice defined from config");
     }
+    /**
+     * 使用 继承的方式可以使超类的bean也被初始化
+     */
 }

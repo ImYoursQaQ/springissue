@@ -11,40 +11,23 @@ import org.springframework.stereotype.Service;
 @Service
 public class AopConfig {
 
-    @Before("execution(* com.spring.puzzle.class6.example2.ElectricService.charge())")
-    public void logBeforeMethod(JoinPoint pjp) throws Throwable {
-        System.out.println("step into ->"+pjp.getSignature());
-    }
-    @Before("execution(* com.spring.puzzle.class6.example2.ElectricService.charge()) ")
-    public void validateAuthority(JoinPoint pjp) throws Throwable {
-        throw new RuntimeException("authority check failed");
-    }
+//    @Before("execution(* com.spring.puzzle.class6.example2.ElectricService.charge()) ")
+//    public void validateAuthority(JoinPoint pjp) throws Throwable {
+//        throw new RuntimeException("authority check failed");
+//    }
+//    @Before("execution(* com.spring.puzzle.class6.example2.ElectricService.charge())")
+//    public void logBeforeMethod(JoinPoint pjp) throws Throwable {
+//        System.out.println("step into ->"+pjp.getSignature());
+//    }
+//
+//    @Before("execution(* com.spring.puzzle.class6.example2.ElectricService.charge())")
+//    public void zlogBeforeMethod(JoinPoint pjp) throws Throwable {
+//        System.out.println("my aaa step into ->"+pjp.getSignature());
+//    }
 
-
-
-
+    /**
+     * 切面的默认顺序是（方法）名字的字典顺序
+     * 如果有order注解 从小到大优先级越高。优先级越高意味着先进、后出
+     */
 }
 
-/*    @Aspect
-    @Service
-    @Order(1)
-    public class AopConfig1 {
-
-        @Before("execution(* com.spring.puzzle.class6.example2.ElectricService.charge()) ")
-        public void validateAuthority(JoinPoint pjp) throws Throwable {
-            throw new RuntimeException("authority check failed");
-        }
-    }*/
-
-    /*
-    @Aspect
-    @Service
-    @Order(2)
-    public class AopConfig2 {
-
-        @Before("execution(* com.spring.puzzle.class6.example2.ElectricService.charge())")
-        public void logBeforeMethod(JoinPoint pjp) throws Throwable {
-            System.out.println("step into ->"+pjp.getSignature());
-        }
-
-    }*/

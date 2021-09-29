@@ -23,13 +23,13 @@ public class HelloWorldController {
 
     @Autowired
     private AbstractApplicationContext applicationContext;
-    ExecutorService newCachedThreadPool = Executors.newCachedThreadPool();
+    ExecutorService newCachedThreadPool = Executors.newFixedThreadPool(1);
 
     @RequestMapping(path = "publishEvent", method = RequestMethod.GET)
     public String notifyEvent(){
-/*        applicationContext.start();
-        applicationContext.stop();
-        applicationContext.close();*/
+//        applicationContext.start();
+//        applicationContext.stop();
+//        applicationContext.close();
         log.info("start to publish event");
         SimpleApplicationEventMulticaster simpleApplicationEventMulticaster = applicationContext.getBean(APPLICATION_EVENT_MULTICASTER_BEAN_NAME, SimpleApplicationEventMulticaster.class);
         simpleApplicationEventMulticaster.setTaskExecutor(newCachedThreadPool);

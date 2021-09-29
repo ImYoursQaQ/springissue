@@ -47,7 +47,7 @@ public class HelloWorldController {
 
     @RequestMapping(path = "/hi3", method = RequestMethod.GET)
     public String hi3(HttpServletResponse httpServletResponse){
-        httpServletResponse.addHeader("myheader", "myheadervalue");
+        httpServletResponse.addHeader("myheader", "myheadervalue123");
         httpServletResponse.addHeader(HttpHeaders.CONTENT_TYPE, "application/json");
         return "ok";
     };

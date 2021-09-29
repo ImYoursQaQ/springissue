@@ -21,9 +21,14 @@ public class AopConfig {
 
     @Around("execution(* com.spring.puzzle.class6.example1.ElectricService.charge()) ")
     public void recordPerformance(ProceedingJoinPoint pjp) throws Throwable {
+        System.out.println("Around before");
         long start = System.currentTimeMillis();
         pjp.proceed();
         long end = System.currentTimeMillis();
         System.out.println("charge method time cost: " + (end - start));
     }
+    /**
+     * Around  优先于before
+     *
+     */
 }

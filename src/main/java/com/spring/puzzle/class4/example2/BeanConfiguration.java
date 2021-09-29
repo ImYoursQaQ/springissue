@@ -6,14 +6,14 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class BeanConfiguration {
 
-    @Bean
+//    @Bean
+//    public LightService getTransmission(){
+//        return new LightService();
+//    }
+
+   //修改方案之一：
+    @Bean(destroyMethod="shutdown")
     public LightService getTransmission(){
         return new LightService();
     }
-
-   //修改方案之一：
-  /*  @Bean(destroyMethod="")
-    public LightService getTransmission(){
-        return new LightService();
-    }*/
 }

@@ -19,13 +19,15 @@ public class MyFirstEventListener implements ApplicationListener<MyEvent> {
     @Override
     public void onApplicationEvent(MyEvent event) {
   /*      try {*/
-            log.info("{} received: {}", this.toString(), event);
-            if(random.nextInt(10) % 2 == 1)
-            throw new RuntimeException("exception happen on first listener");
+            log.info("myorder: 1");
  /*       }catch(Throwable throwable){
             //write error/metric to alert
         }*/
 
     }
+
+    /**
+     * 结论：listener的指定order顺序跟消费者的线程池有关，单线程消费可以保序，通过这个配置 simpleApplicationEventMulticaster.setTaskExecutor(newCachedThreadPool);
+     */
 
 }

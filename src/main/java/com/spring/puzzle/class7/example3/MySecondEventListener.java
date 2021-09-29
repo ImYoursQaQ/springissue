@@ -11,6 +11,7 @@ import org.springframework.stereotype.Component;
 public class MySecondEventListener implements ApplicationListener<MyEvent> {
     @Override
     public void onApplicationEvent(MyEvent event) {
-        log.info("{} received: {}", this.toString(), event);
+//        log.info("{} received: {}", this.toString(), event);
+        log.info("myOrder: 2");
     }
 }

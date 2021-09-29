@@ -17,6 +17,19 @@ public class StudentController {
         this.students = students;
     }
 
+    /**
+     * 使用注解注入的时候区别名字  students  和 student
+     *     @Resource
+     *     private List<Student> students;  注入的已经存在的bean（本身就是list）
+     *
+     *     和
+     *         @Resource
+     *     private List<Student> student;   注入的是Student bean  组成的list
+     *
+     * 使用构造器注入的是Student bean  组成的list,不区别名字
+     *
+     */
+
     @RequestMapping(path = "students", method = RequestMethod.GET)
     public String listStudents(){
        return students.toString();

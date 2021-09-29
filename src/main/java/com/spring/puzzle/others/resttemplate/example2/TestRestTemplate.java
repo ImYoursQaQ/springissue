@@ -36,4 +36,10 @@ public class TestRestTemplate {
         System.out.println(response.getBody());
     }
 
+    /**
+     * 对于 url 传参 和 uri 传参的区别
+     * 使用url: 解析到的参数是： para1=1
+     * 使用uri: 解析到的参数是： para1=1#2
+     */
+
 }

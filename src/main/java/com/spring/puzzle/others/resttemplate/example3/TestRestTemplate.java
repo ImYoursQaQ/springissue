@@ -12,7 +12,7 @@ import java.net.URI;
 public class TestRestTemplate {
 
 
-    public static void main(String[] args) {
+    public static void main1(String[] args) {
         RestTemplate restTemplate = new RestTemplate();
 
         UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl("http://localhost:8080/hi");
@@ -24,7 +24,7 @@ public class TestRestTemplate {
 
     }
 
-    public static void main2(String[] args) {
+    public static void main(String[] args) {
         RestTemplate restTemplate = new RestTemplate();
         UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl("http://localhost:8080/hi");
         builder.queryParam("para1", "开发测试001");
@@ -32,5 +32,13 @@ public class TestRestTemplate {
         ResponseEntity<String> forEntity = restTemplate.getForEntity(url, String.class);
         System.out.println(forEntity.getBody());
     }
+
+    /**
+     *
+     * String url = builder.toUriString();  使用这种方式会丢失编码
+     *
+     * URI url = builder.encode().build().toUri();  【强制】使用URI的方式不会丢失编码
+     *
+     */
 
 }

@@ -12,6 +12,9 @@ public class MyApplicationEnvironmentPreparedEventListener implements Applicatio
     public MyApplicationEnvironmentPreparedEventListener(){
 
     }
+
+
+    @Override
     public void onApplicationEvent(final ApplicationEnvironmentPreparedEvent event) {
         log.info("{} received: {}", this.toString(), event);
     }

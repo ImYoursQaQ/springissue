@@ -3,6 +3,7 @@ package com.spring.puzzle.class2.example1;
 import lombok.extern.slf4j.Slf4j;
 import org.hibernate.validator.constraints.Range;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,7 +21,14 @@ public class StudentController {
 
     //修改方案：精确匹配名字
 /*    @Autowired
-    DataService oracleDataService;*/
+    DataService oracleDataService;
+
+    使用注解指定名字
+    @Autowired
+    @Qualifier("oracleDataService")
+    DataService dataService;
+
+    */
 
     @RequestMapping(path = "students/{id}", method = RequestMethod.DELETE)
     public void deleteStudent(@PathVariable("id") @Range(min = 1,max = 100) int id){
