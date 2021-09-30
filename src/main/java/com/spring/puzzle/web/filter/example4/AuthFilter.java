@@ -15,7 +15,6 @@ import javax.servlet.http.HttpServletResponse;
 @WebFilter
 @Slf4j
 @Order(2)
-@Component
 public class AuthFilter implements Filter {
     @SneakyThrows
     @Override

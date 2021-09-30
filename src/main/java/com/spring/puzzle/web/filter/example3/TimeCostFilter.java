@@ -10,10 +10,11 @@ import java.io.IOException;
 
 @Component
 @Slf4j
-@Order(1)
+@Order(3)
 public class TimeCostFilter implements Filter {
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
+        System.out.println("myOrder: 3");
         System.out.println("#开始计算接口耗时");
         long start = System.currentTimeMillis();
         chain.doFilter(request, response);

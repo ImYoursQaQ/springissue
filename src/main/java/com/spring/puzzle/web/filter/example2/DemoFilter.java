@@ -11,16 +11,22 @@ import java.io.IOException;
 
 @Component
 public class DemoFilter implements Filter {
+    @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
         try {
             //模拟异常
             System.out.println("Filter处理中时发生异常");
             throw new RuntimeException();
         } catch (Exception e) {
+            System.out.println("catch Exception");
+        }finally {
             chain.doFilter(request, response);
         }
-        chain.doFilter(request, response);
     }
+
+    /**
+     * filter 未能正确处理异常，导致请求重复处理
+     */
 
 }
 

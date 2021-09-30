@@ -41,16 +41,37 @@ public class HelloWorldController {
      write to content type into response, can't work:
      GET http://localhost:8080/hi3
      */
-/*
-    @RequestMapping(path = "/hi3", method = RequestMethod.GET, produces = {"application/json"})
-*/
+//    @RequestMapping(path = "/hi3", method = RequestMethod.GET, produces = {"application/json"})
 
     @RequestMapping(path = "/hi3", method = RequestMethod.GET)
     public String hi3(HttpServletResponse httpServletResponse){
         httpServletResponse.addHeader("myheader", "myheadervalue123");
         httpServletResponse.addHeader(HttpHeaders.CONTENT_TYPE, "application/json");
         return "ok";
-    };
+    }
+
+    /**
+     *
+     * 客户端: GET http://localhost:8080/hi3
+     * 服务端：@RequestMapping(path = "/hi3", method = RequestMethod.GET)
+     *      直接使用  response 设置 content type，
+     * 结果: not work
+     *
+     * GET http://localhost:8080/hi3
+     *
+     * HTTP/1.1 200
+     * myheader: myheadervalue123
+     * Content-Type: text/plain;charset=UTF-8   //这里的content type 是无效的
+     * Content-Length: 2
+     * Date: Thu, 30 Sep 2021 07:47:10 GMT
+     * Keep-Alive: timeout=60
+     * Connection: keep-alive
+     *
+     * ok
+     *
+     * Response code: 200; Time: 382ms; Content length: 2 bytes
+     *
+     */
 
 
 }

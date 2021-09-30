@@ -21,6 +21,7 @@ public class AuthFilter implements Filter {
     @SneakyThrows
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain){
+        System.out.println("myOrder: 2");
         if(isPassAuth()){
             System.out.println("通过授权");
             chain.doFilter(request, response);

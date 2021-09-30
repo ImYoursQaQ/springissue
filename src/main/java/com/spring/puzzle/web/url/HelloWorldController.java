@@ -21,18 +21,18 @@ import java.util.Optional;
 public class HelloWorldController {
     private AntPathMatcher antPathMatcher;
 
-    @RequestMapping(path = "/hi1/{name}", method = RequestMethod.GET)
-    public String hi1(@PathVariable("name") String name){
-        return name;
-    };
+//    @RequestMapping(path = "/hi1/{name}", method = RequestMethod.GET)
+//    public String hi1(@PathVariable("name") String name){
+//        return name;
+//    };
 
-/*    @RequestMapping(path = "/hi1/**", method = RequestMethod.GET)
-    public String hi1(HttpServletRequest request){
+    @RequestMapping(path = "/hi1/**", method = RequestMethod.GET)
+    public String hi1extend(HttpServletRequest request){
         String path = (String) request.getAttribute(HandlerMapping.PATH_WITHIN_HANDLER_MAPPING_ATTRIBUTE);
         String matchPattern = (String) request.getAttribute(HandlerMapping.BEST_MATCHING_PATTERN_ATTRIBUTE); // /rest/**
         antPathMatcher = new AntPathMatcher();
         return antPathMatcher.extractPathWithinPattern(matchPattern, path); // 1/53879d5c-b07b-44f2-9a77-b99f67bb8481
-    };*/
+    };
 
 
     @RequestMapping(path = "/hi2", method = RequestMethod.GET)
@@ -65,5 +65,8 @@ public class HelloWorldController {
         return "date is " + date ;
     };
 
+    /**
+     * todo 这一节  不是很明白作者的意图
+     */
 
 }

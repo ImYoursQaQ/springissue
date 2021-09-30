@@ -8,8 +8,8 @@ import org.springframework.stereotype.Service;
 @Service
 public class MetricsService {
 
-    @Autowired
-    public TimeCostFilter timeCostFilter;
+//    @Autowired
+//    public FilterRegistrationBean timeCostFilter;
 
     //下面为修改方法
 /*    @Autowired
