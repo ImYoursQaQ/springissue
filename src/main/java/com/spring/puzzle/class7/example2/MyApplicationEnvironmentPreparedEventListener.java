@@ -19,4 +19,8 @@ public class MyApplicationEnvironmentPreparedEventListener implements Applicatio
         log.info("{} received: {}", this.toString(), event);
     }
 
+    /**
+     * todo spring 事件原理
+     */
+
 }
